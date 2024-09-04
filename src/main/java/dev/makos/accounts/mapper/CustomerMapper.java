@@ -2,7 +2,9 @@ package dev.makos.accounts.mapper;
 
 import dev.makos.accounts.domain.dto.CustomerDto;
 import dev.makos.accounts.domain.entity.Customer;
+import lombok.experimental.UtilityClass;
 
+@UtilityClass
 public class CustomerMapper {
 
     public static CustomerDto mapToCustomerDto(Customer customer, CustomerDto customerDto) {

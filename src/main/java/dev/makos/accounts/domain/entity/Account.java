@@ -1,10 +1,13 @@
 package dev.makos.accounts.domain.entity;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import lombok.*;
+import lombok.experimental.SuperBuilder;
 
-import static jakarta.persistence.GenerationType.IDENTITY;
-
+@SuperBuilder
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
@@ -18,7 +21,6 @@ public class Account extends BaseEntity {
     private Long customerId;
 
     @Id
-    @GeneratedValue(strategy = IDENTITY)
     @Column(name = "account_number")
     private Long accountNumber;
 

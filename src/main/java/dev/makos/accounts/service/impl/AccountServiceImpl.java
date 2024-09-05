@@ -15,7 +15,6 @@ import dev.makos.accounts.service.CustomerService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDateTime;
 import java.util.Random;
 
 @RequiredArgsConstructor
@@ -39,8 +38,6 @@ public class AccountServiceImpl implements AccountService {
                 .accountNumber(randomAccNumber)
                 .accountType(AccountConstant.SAVINGS)
                 .branchAddress(AccountConstant.ADDRESS)
-                .createdBy("SYSTEM")
-                .createdAt(LocalDateTime.now())
                 .build();
     }
 

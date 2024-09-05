@@ -10,8 +10,6 @@ import dev.makos.accounts.service.CustomerService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDateTime;
-
 @RequiredArgsConstructor
 @Service
 public class CustomerServiceImpl implements CustomerService {
@@ -26,8 +24,6 @@ public class CustomerServiceImpl implements CustomerService {
                 .ifPresent(c -> {
                     throw new CustomerAlreadyExistsException("Customer already registered with given mobileNumber " + customerDto.getMobileNumber());
                 });
-        customer.setCreatedAt(LocalDateTime.now());
-        customer.setCreatedBy("SYSTEM");
         return customerRepository.save(customer);
     }
 
@@ -42,6 +38,7 @@ public class CustomerServiceImpl implements CustomerService {
         Customer customer = customerRepository.findById(customerId)
                 .orElseThrow(() -> new ResourceNotFoundException(CUSTOMER, "customerId", customerId.toString()));
         CustomerMapper.mapToCustomer(customerDto, customer);
+        customerRepository.save(customer);
     }
 
     @Override

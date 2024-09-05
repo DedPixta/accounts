@@ -4,6 +4,7 @@ import dev.makos.accounts.constants.AccountConstant;
 import dev.makos.accounts.domain.dto.CustomerDto;
 import dev.makos.accounts.domain.dto.ResponseDto;
 import dev.makos.accounts.service.AccountService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -18,7 +19,7 @@ public class AccountController {
     private final AccountService accountService;
 
     @PostMapping
-    public ResponseEntity<ResponseDto> create(@RequestBody CustomerDto customerDto) {
+    public ResponseEntity<ResponseDto> create(@Valid @RequestBody CustomerDto customerDto) {
         accountService.createAccount(customerDto);
         String statusCode = String.valueOf(HttpStatus.CREATED.value());
         ResponseDto responseDto = new ResponseDto(statusCode, AccountConstant.MESSAGE_201);
@@ -32,7 +33,7 @@ public class AccountController {
     }
 
     @PutMapping
-    public ResponseEntity<ResponseDto> update(@RequestBody CustomerDto customerDto) {
+    public ResponseEntity<ResponseDto> update(@Valid @RequestBody CustomerDto customerDto) {
         accountService.updateAccount(customerDto);
         String statusCode = String.valueOf(HttpStatus.OK.value());
         ResponseDto responseDto = new ResponseDto(statusCode, AccountConstant.MESSAGE_200);

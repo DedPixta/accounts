@@ -1,4 +1,4 @@
-package dev.makos.accounts.audit;
+package dev.makos.cards.audit;
 
 import org.springframework.data.domain.AuditorAware;
 import org.springframework.lang.NonNull;
@@ -17,6 +17,6 @@ public class AuditAwareImpl implements AuditorAware<String> {
     @NonNull
     @Override
     public Optional<String> getCurrentAuditor() {
-        return Optional.of("ACCOUNTS_MS");
+        return Optional.of("CARDS_MS");
     }
 }

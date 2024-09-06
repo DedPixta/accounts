@@ -21,9 +21,10 @@ import java.util.Random;
 @Service
 public class AccountServiceImpl implements AccountService {
 
+    private static final Random RANDOM = new Random();
+
     private final AccountRepository accountRepository;
     private final CustomerService customerService;
-    private final Random random = new Random();
 
     @Override
     public void createAccount(CustomerDto customerDto) {
@@ -32,7 +33,7 @@ public class AccountServiceImpl implements AccountService {
     }
 
     private Account createAccount(Customer customer) {
-        long randomAccNumber = 1000000000L + random.nextInt(900000000);
+        long randomAccNumber = 1000000000L + RANDOM.nextInt(900000000);
         return Account.builder()
                 .customerId(customer.getCustomerId())
                 .accountNumber(randomAccNumber)

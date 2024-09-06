@@ -12,13 +12,14 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.Pattern;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-@Tag(name = "Account Controller", description = "APIs for managing accounts")
+@Tag(name = "Account REST API", description = "APIs for managing accounts")
 @RequiredArgsConstructor
 @RequestMapping(value = "/api/v1/accounts", produces = {MediaType.APPLICATION_JSON_VALUE})
 @RestController
@@ -39,7 +40,9 @@ public class AccountController {
     @Operation(summary = "Fetch Account", description = "Fetch Customer & Account details by mobileNumber")
     @ApiResponse(responseCode = "200", description = "HTTP status OK")
     @GetMapping
-    public ResponseEntity<CustomerDto> fetch(@RequestParam String mobileNumber) {
+    public ResponseEntity<CustomerDto> fetch(
+            @Pattern(regexp = "^\\d{10}$", message = "Mobile number should be 10 digits")
+            @RequestParam String mobileNumber) {
         CustomerDto customerDto = accountService.fetchAccount(mobileNumber);
         return ResponseEntity.status(HttpStatus.OK).body(customerDto);
     }
@@ -61,7 +64,9 @@ public class AccountController {
     @Operation(summary = "Delete Account", description = "Delete Customer & Account by mobileNumber")
     @ApiResponse(responseCode = "200", description = "HTTP status OK")
     @DeleteMapping
-    public ResponseEntity<ResponseDto> delete(@RequestParam String mobileNumber) {
+    public ResponseEntity<ResponseDto> delete(
+            @Pattern(regexp = "^\\d{10}$", message = "Mobile number should be 10 digits")
+            @RequestParam String mobileNumber) {
         accountService.deleteByMobileNumber(mobileNumber);
         String statusCode = String.valueOf(HttpStatus.OK.value());
         ResponseDto responseDto = new ResponseDto(statusCode, AccountConstant.MESSAGE_200);

@@ -1,9 +1,9 @@
-package dev.makos.cards.exception.handler;
+package dev.makos.loans.exception.handler;
 
-import dev.makos.cards.domain.dto.ErrorResponseDto;
-import dev.makos.cards.exception.BadRequestException;
-import dev.makos.cards.exception.CardAlreadyExistsException;
-import dev.makos.cards.exception.ResourceNotFoundException;
+import dev.makos.loans.domain.dto.ErrorResponseDto;
+import dev.makos.loans.exception.BadRequestException;
+import dev.makos.loans.exception.LoanAlreadyExistsException;
+import dev.makos.loans.exception.ResourceNotFoundException;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
@@ -48,8 +48,8 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(errorResponseDto);
     }
 
-    @ExceptionHandler(CardAlreadyExistsException.class)
-    public ResponseEntity<ErrorResponseDto> handleCardAlreadyExistsException(CardAlreadyExistsException e, WebRequest webRequest) {
+    @ExceptionHandler(LoanAlreadyExistsException.class)
+    public ResponseEntity<ErrorResponseDto> handleLoanAlreadyExistsException(LoanAlreadyExistsException e, WebRequest webRequest) {
         ErrorResponseDto errorResponseDto = getErrorResponseDto(HttpStatus.BAD_REQUEST, e, webRequest);
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errorResponseDto);
     }

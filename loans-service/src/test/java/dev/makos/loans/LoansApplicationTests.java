@@ -1,10 +1,10 @@
-package dev.makos.cards;
+package dev.makos.loans;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class CardsApplicationTests {
+class LoansApplicationTests {
 
     @Test
     void contextLoads() {

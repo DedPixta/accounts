@@ -1,4 +1,4 @@
-package dev.makos.cards.domain.dto;
+package dev.makos.loans.domain.dto;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
@@ -16,7 +16,7 @@ import java.time.LocalDateTime;
 @Schema(name = "ErrorResponse", description = "Error response details to hold error information")
 public class ErrorResponseDto {
 
-    @Schema(description = "API path that caused the error", example = "uri=/api/v1/cards")
+    @Schema(description = "API path that caused the error", example = "uri=/api/v1/loans")
     private String apiPath;
 
     @Schema(description = "HTTP method that caused the error", example = "POST")

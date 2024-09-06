@@ -20,7 +20,7 @@ public class CardServiceImpl implements CardService {
 
     private static final Random RANDOM = new Random();
 
-    private CardRepository cardRepository;
+    private final CardRepository cardRepository;
 
     @Override
     public void create(String mobileNumber) {

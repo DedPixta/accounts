@@ -2,6 +2,7 @@ plugins {
     id 'java'
     id 'org.springframework.boot' version '3.3.3'
     id 'io.spring.dependency-management' version '1.1.6'
+    id 'com.google.cloud.tools.jib' version '3.4.3'
 }
 
 group = 'dev.makos'
@@ -10,6 +11,28 @@ version = '0.0.1-SNAPSHOT'
 java {
     toolchain {
         languageVersion = JavaLanguageVersion.of(21)
+    }
+}
+
+jib {
+    from {
+        image = 'eclipse-temurin:21.0.4_7-jdk-alpine'
+        platforms {
+            platform {
+                architecture = 'amd64'
+                os = 'linux'
+            }
+            platform {
+                architecture = 'arm64'
+                os = 'linux'
+            }
+        }
+    }
+    to {
+        image = "dedpixta2/${project.name}:s4"
+    }
+    dockerClient {
+        executable = "/usr/local/bin/docker"
     }
 }
 

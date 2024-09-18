@@ -17,3 +17,14 @@ spring:
     show-sql: true
     open-in-view: false
 
+build:
+  version: "1.0"
+
+accounts:
+  message: "Welcome to the Accounts Service"
+  contactDetails:
+    email: "johny@gmail.com"
+    name: "John Doe"
+  onCallSupport:
+    - (800) 123-4567
+    - (800) 765-4321

@@ -16,12 +16,19 @@ spring:
       ddl-auto: update
     show-sql: true
     open-in-view: false
+  config:
+    import:
+      - application_qa.yaml
+      - application_prod.yaml
+  profiles:
+    active:
+      - qa
 
 build:
-  version: "1.0"
+  version: "3.0"
 
 accounts:
-  message: "Welcome to the Accounts Service"
+  message: "Welcome to the Accounts Service in Local Environment"
   contactDetails:
     email: "johny@gmail.com"
     name: "John Doe"

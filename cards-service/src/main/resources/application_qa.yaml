@@ -1,0 +1,16 @@
+spring:
+  config:
+    activate:
+      on-profile: qa
+
+build:
+  version: "2.0"
+
+cards:
+  message: "Welcome to the Cards Service in QA Environment"
+  contactDetails:
+    email: "sarad@gmail.com"
+    name: "Sara Doe"
+  onCallSupport:
+    - (600) 123-4567
+    - (600) 765-4321

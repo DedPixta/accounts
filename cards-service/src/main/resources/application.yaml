@@ -16,4 +16,22 @@ spring:
       ddl-auto: update
     show-sql: true
     open-in-view: false
+  config:
+    import:
+      - application_qa.yaml
+      - application_prod.yaml
+  profiles:
+    active:
+      - qa
 
+build:
+  version: "3.0"
+
+cards:
+  message: "Welcome to the Cards Service in Local Environment"
+  contactDetails:
+    email: "johny@gmail.com"
+    name: "John Doe"
+  onCallSupport:
+    - (800) 123-4567
+    - (800) 765-4321

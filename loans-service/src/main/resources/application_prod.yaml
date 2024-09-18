@@ -1,0 +1,16 @@
+spring:
+  config:
+    activate:
+      on-profile: prod
+
+build:
+  version: "1.0"
+
+loans:
+  message: "Welcome to the Loans Service in Production Environment"
+  contactDetails:
+    email: "evad@gmail.com"
+    name: "Eva Doe"
+  onCallSupport:
+    - (200) 123-4567
+    - (200) 765-4321

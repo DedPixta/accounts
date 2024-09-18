@@ -35,8 +35,6 @@ public class AccountController {
     @Value("${build.version}")
     private String buildVersion;
 
-
-
     @Operation(summary = "Create Account", description = "Create new Customer & Account")
     @ApiResponse(responseCode = "201", description = "HTTP status Created")
     @PostMapping

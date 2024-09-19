@@ -3,3 +3,4 @@ rootProject.name = 'accounts'
 include('accounts-service')
 include('cards-service')
 include('loans-service')
+include('config-server')

@@ -9,7 +9,7 @@ build:
 loans:
   message: "Welcome to the Loans Service in QA Environment"
   contactDetails:
-    email: "sarad@gmail.com"
+    email: "{cipher}b64546e824a83ed05954c40d31d2c7d24cd367c37fcfea859c8a0926e506de8c"
     name: "Sara Doe"
   onCallSupport:
     - (600) 123-4567
